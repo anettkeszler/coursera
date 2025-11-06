@@ -1,4 +1,4 @@
-# Version Control
+# Version Control Course 
 
 ## Module1 - Software Collaboration (1-17)
 
@@ -88,3 +88,62 @@ Here are some general tips that can help you stay focused and on track:
 - **Version Control as a Universal Tool**: Analyze how version control systems serve as an essential "time machine" for all types of developers:
     - Git allows us to revert our changes or go back to a previous version. 
     - commit history acts like a detailed logbook, explaining what and why chanes were made. 
+
+
+### 6. What is version control? (video)
+**Version control** is a system that records all changes and modification to files for tracking purposes. Primary goal is to keep track of changes. 
+VCS allows developers access to the entire change history with the ability to revert or roll back to a previous state. 
+
+Benefits of using VC: 
+- revision history: it provides a record of all changes in a project, it has the ability to revert to a stable point in time in case of issues or bugs.So the team can work faster and deliver code with more confident. 
+- identity: All changes were made with the identity of the user
+- collaboration: a developer works with many people on the same project, everyone can submit their own code and review other's code (peer review) to provide feedback
+- automation
+- efficiency
+
+DevOps is a set of practices, philosophies and tools that increase an organization's ability to deliver applications or services to a hight quality and velocity. VC is a key tool in this process.
+
+Agile methodology: 
+- Planning 
+- Requirement analysis
+- Design
+- Developement
+- Testing
+- Deployment
+
+ In an agile process planning and working is usually a 2 weeks duration, it is an iteration. Each iteration has a list of tasks.
+
+ ### 7. Case study: how Meta engineers collaborate (video)
+
+### 8. Version Control Git terminology (cheat sheet, pdf)
+
+![alt text](img/git1.png)
+![alt text](img/git2.png)
+![alt text](img/git3.png)
+![alt text](img/git4.png)
+
+### 9. Systems of Version control and tool
+Version Control Systems examples: 
+- Git
+- Subversion
+- Perforce
+- AWS Code Commit
+- Mercurial
+
+VCSs can be **Centralized or Distributed** 
+
+**Centralized VCSs (CVCS):** contain a server and a client. The server contains the main repository that keeps the full history of versions of the code base. Developers working on projects using CVCS need to pull down the code from the server to their local machine, so they have their own working copy of the code base. The cliant has the latest code. After making changes to the code, the developer needs to push the changes to the central server so that other developers can see them. 
+
+Pros: 
+- easier to learn
+- give more access control to user
+
+Cons:
+- slower (needs to estabilish a connection to the server to perform any actions)
+
+**Distributed Version Control System (DVCS)**: similar to CVCS, you still need to pull code down from the server to view the latest changes. The key difference is that every user is essentially a server and not a client. This means that every time you pull down code from the distributed model, you have the entire history of changes on your local system. 
+
+Pros:
+- you don't need to be connected to the server to add your changes or view a file's history (users can work in an offline state)
+- speed and performance is better 
+- better software developement life cycle
