@@ -1,5 +1,7 @@
 # Version Control Course 
 
+Source: Version Control: https://www.coursera.org/learn/introduction-to-version-control?specialization=meta-full-stack-developer
+
 ## Module1 - Software Collaboration (1-17)
 
 ### 1. Introduction to the Course (video)
