@@ -92,6 +92,8 @@ Having independent branches makes the project easier to manage.
 This is cleaner than everyone working on the main branch, which could likely cause a lot of isses / merge conflicts.
 Also there is no limit how many branches you can have. 
 
+When you create a pull request you are asking the other developers to review your work and approve it to be merged with the repository.
+
 Naming convention: 
 when working on a new feature: feature/...
 when bug fixing: fix/..
@@ -105,7 +107,7 @@ git pull                    - you will recieve the latest changes from your main
 
 ### 11. Remote vs Local 
 
-Remote repository where any developer can push their changes.  This can be a centralized repository, such as GitHub. 
+Remote repository where any developer can push their changes.  
 
 The remote code is accessed through a URI which is unique and only accessible to those who have permission.
 

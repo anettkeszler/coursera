@@ -216,6 +216,11 @@ You can handle both output and error at once,
 ```
 ls -l /bin/usr > error_output.txt 2>&1
 ```
+```
+< input.txt
+> output.txt
+2> error.txt
+```
 
 
 ### 14. Grep

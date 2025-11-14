@@ -155,7 +155,7 @@ Cons:
 Short: Each developer has a full copy of the project history on their local machine, enabling offline work and faster operations.
 
 Pros:
-- you don't need to be connected to the server to add your changes or view a file's history (users can work in an offline state)
+- it allows users to work in an offline state. (you don't need to be connected to the server to add your changes or view a file's history (users can work in an offline state), you only have to connect to server when you pull down or push back the changes. )
 - speed and performance is better 
 - better software developement life cycle
 
