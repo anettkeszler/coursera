@@ -1,33 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Bare Bones Layout</title>
         <meta name="author" content="Anett Keszler">
         <meta name="description" author="This is a bare bones layout of HTML web page">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Bare Bones Layout</title>
+
+        <!-- Open Graph Protocol -->
+
+         <meta property="og:title" content="My first webpage">
+         <meta property="og:type" content="website">
+         <meta property="og:url" content="https://example.com">
+         <meta property="og:image" content="https://example.com/me.jpg">
+        <!-- Optional OGP -->
+         <meta property="og:description" content="A brief description">
+         <meta property="og:locale" content="en_US">
+         <meta property="og:site_name" content="My first webpage">
 
         <link rel="icon" href="img/html.png">
+        <!-- CSS file comes here -->
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
         <header>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+            <!-- Add your website name or logo-->
+            <p>Header</p>
         </header>
+        <nav>
+            <!-- Add your website navigation here -->
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
         <main>
+            <!-- Add your main content here-->
             <h1>Heading</h1>
             <article>
                 <h2>My summer holiday</h2>
                 <p>This summer I visited my grandparents.</p>
             </article>
         </main>
-        <footer></footer>
+        <footer>
+            <p>Footer</p>
+        </footer>
         <script src="js/script.js"></script>
     </body>
 </html>
