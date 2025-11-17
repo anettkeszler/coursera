@@ -93,8 +93,77 @@ Semantic tags describe the meaning of a web page and they help search engines an
 
 Semantic tags cheat sheet: check 'semanticHtmlElements_cheatsheet.md' file 
 
+### Metadata 
+- you will learn how search engines analyze web pages and how meta tags help provide information for search engines
+- A major part of launching a website called SEO: Search Engine Optimization 
+- This process involves making improvements to a website's content, semantics and delivery to improve its ranking in search results. 
+- When a search engine visits your website, it analyzes the html document and media content. If it finds a link to another html document, it follows the link to that document, and continues following links until it is finished analyzing the entire website. Based on the results of the analysis and the content on your website, the search engine will rank the website for various search terms. There are many best practices you can follow to influence how search engines analyze and rank your website.
+
+- Meta tags define metadata about a web page (Metadata is data about the web page)
+- Meta tags are added inside the ```<head>``` element of the html document, and nothing inside the head element is displayed in the web browser
+- Meta element has 2 attributes: name and content 
+```
+<meta name="name of the metadata" content="value of the metadata">
+
+<meta name="author" content="Anett Keszler">
+<meta name="description" content="Anett's first web page">
+<meta name="keywords" content="holidays, free, summer, vacation">       / previously used to provide search keywords for search engines, but this led to a manipulation of search engines
+```
+- It is recommended not to include 'keywords' metadata in your webpage, it's overused. 
+```
+<meta name="robots" content="index, follow">                            / it tells search engines if and how they should analyze your web page
+```
+    - index: tells the bot to analyze the page 
+    - follow: tells the bot to also visit all links on the web page
+    - noindex: tells the bot not to analyze the page
+    - nofollow: tells the bot not to also visit all links on the web page
+
+    - but some bots will ignore this value, so it's best not to rely on that
+
+```
+<meta name="viewport" content="width=device-width, initial scale=1.0">  / it's important when designing responsive web pages
+```
+    - viewport data to help web browsers display websites at the appropriate scale on the device being used.     
+    - viewport metadat is important for user experience and for SEO, because many search engines include websites mobile experience as a part of there ranking algorithms
 
 
+### Bare bones layout
+
+In VSC, we have the follofing folder structure:
+    - index.html file
+    - js folder --> script.js file
+    - css folder --> styles.css
+
+Index.html: You need to add the CSS file to the css folder, the JavaScript file to the jsfolder, a link element to reference the CSS file and a script element to reference the JS file.
+
+#### Layout design 
+- Top navbar layout
+- Carousel layout: Product-focused websites often use a large carousel on their homepage to highlight their featured products, discounts and offers.
+- Blog layout: The blog layout is used to feature multiple content items of differing importance. It is often seen on news websites where new articles will appear on the page each day based on current events.
+- Dashboard layout: Dashboard layouts are often used in enterprise software for managing various web applications. They typically feature a sidebar for navigation with the main content area containing forms for configuration or reporting data such as graphs and tables. 
+
+### UX with meta tags
+- meta tags help web pages create previews of other web pages
+- Traditional SEO meta tags are oriented towards search results, not direct links
+- Open Graph Protocol (OGP, estabilished by Facebook in 2010):
+    - to improve the user experience, they found a way to display information about a website before a user clicks on the link 
+    - OGP is a set of metadata rules for describing websites
+    - Open Graph Protocol is a set of metadata rules that allows web pages to describe themselves to social networks. 
+    - **Social media platforms use these meta tags to create a preview of the shared web page.**  
+    - The aim is to improve user expreience
+    - the OGP must always include these four properties on a webpage:
+    ```
+    <meta property="og:title" content="My first web page">              / this is the text that will appear in the preview
+    <meta property="og:type" content="website">                         / website, video, music, article...
+    <meta property="og:url" content="https://example.com">
+    <meta property="og:image" content="https://example.com/me.jpg">
+
+    <meta property="og:description" content="...">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Little Lemon">
+    ```
+
+- Effective social media cards help to inform Internet users about your website and drive traffic towards it. The extra time a developer spends adding social media tags is worth the effort! 
 
 
 
