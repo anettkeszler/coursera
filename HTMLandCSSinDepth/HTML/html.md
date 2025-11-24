@@ -165,8 +165,105 @@ Index.html: You need to add the CSS file to the css folder, the JavaScript file 
 
 - Effective social media cards help to inform Internet users about your website and drive traffic towards it. The extra time a developer spends adding social media tags is worth the effort! 
 
+### Forms and form validation
+- **Form validation is a process that ensures the data entered by the user in a form is valid and conforms to rules defined by the developer** 
+    - **Client-side validation**: checks errors as soon as they are typed into the form, checks if a form has been filled out correctly. If error, an error message will alert the user of the invalid data <br>
+     Client-side validation checks for errors as soon as they are typed into the form. The web browser does this by validating the submitted data against the specified input type. The web browser will show an error message if the wrong type of input has been submitted.
+    - **Server-side validation**: checkes for error after the data has been submitted to the web server. It is more secure, because it prevents malicious users from tampering with your website's code and submitting invalid data to your server. When the form data is recieved by the web server, the backend will validate the data before processing it. 
+        - checking the data against database 
+        - validating data against business requirements
+
+- Most websites use both, client- and server-side validation to provide immediate feedback to users, but also to protect against malicious data submission to ensure data integrity 
+
+### Input types
+
+Check inputTypes_cheatsheet.md file
+
+### Creating a form 
+
+Check signup.html file 
+
+### Client-side validation
+- as a developer you can use HTML and CSS to guide the users to enter the correct data on forms
+```
+<label for="firstName">First name:</label><br>
+<input type="text" id="firstName" name="firstName" required minlength="3" maxlength="12">
+```
+
+- required
+- minlength
+- maxlength
+- min and max attributes: Determine the minimum and maximum values allowed for an input field. They are usually applied to numerical text inputs, range inputs or dates. 
+- multiple: Indicates that the user can enter more than one value in a single input field. This attribute can only be used for email and file input types
+- pattern: Defines a particular pattern that an input field value has to fulfill to be considered valid. This attribute expects a regular expression to specify the pattern. It works with text, date, search, URL, tel, email and password input types. For example, you can restrict phone numbers to be only from the UK
+```
+<input type="tel" id="phone" name="phone" pattern=”^(?:0|\+?44)(?:\d\s?){9,10}$” > 
+```
+
+- a built-in function of the browser will generate warning message displayed on the screen, that the input you typed is invalid
+- a much better user experience and a management of web server resources, if we apply client-side validation 
+
+### Radio button 
+
+- ideal for example to an online table booking form in a restaurant
+- it allows us to setup groups of limited options, and only one option by groups can be selected
+
+- for the example, check booking.html file
 
 
+### Form submission
+
+- what happens when you click on the order button 
+- the web browser communicates with the web server using a HTTP request-response cycle
+- the web browser send requests to the web server and the web server sends back a response  
+- there are two ways a form can send data to the web server: **HTTP get method** or **HTTP post method** 
+
+```
+<form method="get"></form>
+<form method="post"></form>
+```
+
+- **1. Using 'GET' method to send data to the server**: <br>
+when the 'Login' button is clicked, the form data is sent as part of the request URL. <br>
+This means that the user data is appended to the end of the URL in the web browser navigation bar. The web server recieves the HTTP GET request, and extracts the form data from the URL. <br>
+While this is an easy way to submit data, it has 3 key problems: 
+    - length of the URL is limited to 2000 characters (if you have a large form, some data may be lost)
+    - length of the URL is limited on the server side 
+    - security: personal information is sent through URL, anyone can see it when opening browse history
+
+- **2. Using 'POST' method to send data to the server: <br>**
+- The form data is inserted into the content of the HTTP request.
+When the submit button is pressed, it will send an HTTP post request with the data contained in the body of the request
+It is more secure, but still it can be read by a third party listening to the HTTP request.
+
+To secure the request completely, HTTPS is used to encrypt the data, so that only the sender and reciever can understand the data.
+Once the web server recieves the request, it processes it and sends back an HTTP response 
+
+#### Address location 
+```
+<form action="/login"> 
+</form> 
+```
+The action attribute specifies to which web address the form must be sent. This is address is location of server-side code that will process the request.
+It is important to note that action can be a full URL address such as https://meta.com, an absolute path such as /login, or a relative path such as login. 
+
+The absolute path, which starts with a forward slash, will use the base address of the current website, such as https://meta.com and combine it with the absolute path. For example, if /login is the absolute path, the form will be submitted to https://meta.com/login. If the address is https://meta.com/company-info/ and /login is the absolute path, the submission address will still be https://meta.com/login.
+
+Similarly, a relative path will combine the current web address with a relative path. For example, if the web browser is currently on the web page https://meta.com/company-info/, and the relative path is set to login, the form will be submitted to https://meta.com/company-info/login. 
+
+```
+<form method="get"> 
+</form> 
+
+<form method="post"> 
+</form> 
+
+```
+The form will default to the HTTP GET method when the method attribute is not provided. 
+
+As you may already know, when the form is submitted using the HTTP GET method, the data in the form's fields are encoded in the URL. And when the form is submitted using the HTTP POST method, the data is sent as part of the HTTP request body. 
+
+When the web server receives the request, it processes the data and sends back an HTTP response. The response indicates the result of the submission, which can be successful or fail due to invalid or incorrect data. 
 
 
 

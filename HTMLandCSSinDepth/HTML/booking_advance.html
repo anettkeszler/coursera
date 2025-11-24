@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+
+        <meta name="author" content="Anett Keszler">
+        <meta name="description" author="Booking form">
+
+        <link rel="icon" href="img/html.png">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <header>
+            <p>Header</p>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <main>
+            <h1>Book a Table</h1>
+            <form method="post">
+                <div>
+                    <label for="bookingDate">Booking Date</label>
+                    <input type="date" id="bookingDate" name="bookingDate">
+                </div>
+                <div>
+                    <label for="bookingPeople">Number of People</label>
+                    <input type="range" id="bookingPeople" name="bookingPeople" min="1" max="10" value="4" oninput="this.nextElementSibling.value = this.value"></input>
+                    <output>4</output>
+                </div>
+                <div>
+                    <label for="bookingLocation">Location</label>
+                    <input id="bookingLocation" name="bookingLocation" list="locations">
+                    <datalist id="locations">
+                        <option value="Downtown">Downtown</option>
+                        <option value="Uptown">Uptown</option>
+                    </datalist>
+                </div>
+                <div>
+                    <button type="submit">Book a Table</button>
+                </div>
+            </form>
+        </main>
+        <footer>
+            <p>Footer</p>
+        </footer>
+        <script src="js/script.js"></script>
+    </body>
+</html>
