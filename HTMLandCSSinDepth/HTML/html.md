@@ -2,6 +2,23 @@
 
 Course: https://www.coursera.org/learn/html-and-css-in-depth/lecture/6j2oH/introduction-to-the-program
 
+Additional resources: 
+
+```<Input>``` html tag:
+https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input
+
+Form validation examples: 
+https://www.the-art-of-web.com/html/html5-form-validation/
+
+Client-side validation:
+https://www.sitepoint.com/client-side-form-validation-html5/
+
+Input type: Radio buttons:
+https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/radio
+
+HTML Form Submission - seding form data:
+https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Sending_and_retrieving_form_data
+
 ## Module1: HTML in Depth (1-60)
 
 **After completing this module you should be able to:**
@@ -266,9 +283,103 @@ As you may already know, when the form is submitted using the HTTP GET method, t
 When the web server receives the request, it processes the data and sends back an HTTP response. The response indicates the result of the submission, which can be successful or fail due to invalid or incorrect data. 
 
 
+### Video and Audio
+```
+<video width="320" height=""240" controls muted>
+    <source src="dance.mp4" type="video/mp4">
+    <source src=dance.ogg type="video/ogg">
+</video>
+```
+
+```
+<audio loop controls>
+    <source src="music.ogg" type="audio/ogg">
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+```
+
+- HTML ```<video>``` and ```<audio>``` tags are used to embedding media on a webpage 
+- both tags support different file types that can be played in the web browser 
+    - video: .mp4, .webm, .ogg
+    - audio: .mp3, .wav, .ogg
+
+- the file types are supported by most web browsers. In case the file type is not supported, the video tag allows for multiple sources to be specified. The browser will search through the sources and use the first one that is supported. 
+ 
+- ```controls``` attribute: it enables player controls, such as a pause and volume button 
+- ```loop``` attribute: automatically starts playing the music when its ended
+- ```muted``` attribute: when the user opens the browser, the video is muted by default. 
 
 
+### Images
+
+```
+<img src="photo.png">
+<img src="photo.png" width="640" height="480"> 
+```
+
+- ```<img>``` element used to add images to the web page
+- ```src``` attribute specifies the source/address of the image
+- ```width``` and ```height``` attributes: specify the size of the image. You can set the image to a larger or smaller size and the web browser will automatically scale the image. One useful feature of rendering images in the web browser is that the web browser can automatically keep the correct ratio of width to height.
+
+But what happens if the photo doesn’t load? Perhaps the file was accidentally deleted, or you mistyped the file name. Luckily, the web browser has a way to display some text when the image fails to load. This is done using the alt attribute.
+
+```
+<img src="photo.png" width="320" alt="My Profile Photo"> 
+```
+
+It is important to ensure that screen reader accessibility software can interpret images displayed in the web browser. To support this, the ```<img>``` tag is combined with the ```<figure>``` and ```<figcaption>``` tags to provide a description of the image.
+
+```
+<figure> 
+   <img src="photo.png" width="320" alt="My Profile Photo"> 
+   <figcaption>A photo of myself on a beach in 2015</figcaption> 
+</figure>
+```
+- supported file types for images: 
+    - .APNG – Animated Portable Network Graphics 
+    - .AVIF – AV1 Image Format 
+    - .GIF – Graphics Interchange Format 
+    - .JPEG / .JPG – Joint Photographic Expert Group image format 
+    - .PNG – Portable Network Graphics 
+    - .SVG – Scalable Vector Graphics 
+    - .WEBP – Web Picture Format
+
+### iFrame
+- iFrame is a HTML element that allows you to embedd content from another website into a webpage 
+```
+<iframe src="" width="" height=""></iframe>
+```
+
+- iframe is often used to display adverts, embed content from another website (social media post, map)
+- ```src``` attribute: contains the content that is embedded, value of the attribute is the URL of the content 
+
+- it is not secure, you can inject malicious code 
+- ```allow``` attribute: limitst which browser features the iframe can access 
+- ```sandbox``` attribute: limits the behaviour within the iframe (preventing files from being downloaded, preventing pop-up windows). When sandbox attribute is used with an empty value, all sandbox restrictions will apply to the iframe.
+
+```
+<iframe src="https://www.example.com" allow="camera 'none'; microphone 'none';" sandbox=""></iframe>
+```
+    - allow: it disables camera and microphone
+    - sandbox="": all sandbox restrictions will apply to the iframe
+    - sandbox="allow-downloads"
+
+- ```allow``` attribute: It specifies what features or permissions are available to the frame
+    - allow="fullscreen” the fullscreen mode can be activated 
+    - allow=“geolocation” lets you access the user’s location 
+    - ```<iframe src="https://example.com/…" allow="camera; microphone"> </iframe>```
+
+- ```referrerpolicy``` attribute: A referrer is the HTTP header that lets the page know who is loading it. This attribute indicates which referrer information to send when loading the frame resource.
+    - ```no-referrer```:  The referrer header will not be sent. 
+    - ```origin```: The referrer will be limited to the origin of the referring page 
+    - ```strict-origin```: The origin of the document is sent as the referrer only when using the same protocol security level (HTTPS to HTTPS) 
 
 
-
-
+- ```sandbox``` attribute: To enforce greater security, a sandbox applies extra restrictions to the content in the iframe. To lift particular restrictions, an attribute value (permission token) is used
+    - ```allow-downloads```: Allows the user to download an item 
+    - ```allow-forms```: Allows the user to submit forms 
+    - ```allow-modals```: The resource can open modal windows 
+    - ```allow-orientation-lock```: Lets the resource lock the screen orientation 
+    - ```allow-popups```: Allows popups to open 
+    - ```allow-presentation```: Allows a presentation session to start 
+    - ```allow-scripts```: Lets the resource run scripts without creating popup windows 
