@@ -125,8 +125,70 @@ HTTP works to transfer web resources such as HTML files, and is the foundation o
         - Server Error: 500-599
             - indicates that the failure occured on the web server while trying to process the request 
             - 500: internal server error 
+            - 502: Bad Gateway
+            - 503: Service Unavailable
 
 - **HTTPS** : Secure HTTP - lock icon besides the URL, it uses encryption. It works in the same way as HTTP, the requests and responses have the same content. But before the content is sent, it is encrypted. Only the other computer can turn the secret code back into its original content. 
+
+#### HTTP Request Examples:
+- Every HTTP request begins with the **HTTP Request line**.
+- This consists of the **HTTP method**, **the requested resource** and the **HTTP protocol version**. 
+```
+GET /home.html HTTP/1.1 
+```
+**HTTP Request Headers**: After the request line, the HTTP headers are followed by a line break.
+A header is a case-insensitive name followed by a: and then followed by a value.
+Common headers are:
+```
+Host: example.com
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:50.0) Gecko/20100101 Firefox/50.0
+Accept: */*
+Accept-Language: en
+Content-type: text/json
+```
+
+**HTTP Request Body**: 
+HTTP requests can optionally include a request body. A request body is often included when using the HTTP POST and PUT methods to transmit data.
+```
+POST /users HTTP/1.1
+Host: example.com
+
+{
+ "key1":"value1",
+ "key2":"value2",
+ "array1":["value3","value4"]
+}
+```
+
+#### HTTP Response examples: 
+When the web server is finished processing the HTTP request, it will send back an HTTP response.<br>
+The first line of the response is the status line. This line shows the client if the request was successful or if an error occurred.<br>
+```
+HTTP/1.1 200 OK 
+```
+The line begins with the HTTP protocol version, followed by the status code and a reason phrase. The reason phrase is a textual representation of the status code.
+
+**HTTP Response Headers**: 
+Following the status line, there are optional HTTP response headers followed by a line break.<br>
+Similar to the request headers, there are many possible HTTP headers that can be included in the HTTP response.
+
+**HTTP Response Body**:
+Following the HTTP response headers is the HTTP response body. This is the main content of the HTTP response.
+
+This can contain images, video, HTML documents and other media types.
+```
+HTTP/1.1 200 OK                         / --> Status Line 
+Date: Fri, 11 Feb 2022 15:00:00 GMT+2   / --> Response Header 
+Server: Apache/2.2.14 (Linux)
+Content-Length: 84
+Content-Type: text/html
+
+<html>                                  / --> Response Body
+  <head><title>Test</title></head>
+  <body>Test HTML page.</body>
+</html>
+```
+
 
 ### Other Internet Protocols:
 Hypertext Transfer Protocols (HTTP) are used on top of Transmission Control Protocol (TCP) to transfer webpages and other content from websites.
@@ -143,3 +205,57 @@ All data sent over SSH is encrypted. This means that third parties cannot unders
 
 **Secure File Transfer Protocol (SFTP)**
 The data is transmitted insecurely when using the File Transfer Protocol. This means that third parties may understand the data that you are sending. This is not right if you transmit company files such as software and databases. To solve this, the SSH File Transfer Protocol, alternatively called the Secure File Transfer Protocol, can be used to transfer files over the SSH protocol. This ensures that the data is transmitted securely. Most FTP clients also support the SFTP protocol.
+
+
+### Webpage, website, web application
+- **Webpage**: is one single page that consists of HTML, CSS and JS. It displays images, text, videos and other content in the web browser.  
+
+- **Website**: is a collection of web pages that linked together under one domain name. 
+
+- **Web application**: more interactive than a website (vs. website is informative, and displayes the same content for everyone, it's not personalized). Example: online food ordering application, social media platform --> you have to sign in, and the content displayed is personalized based on your user account and location. Dynamically updated content. 
+
+### Developer Tools
+- To open developer tools: Command + option + J OR Right click --> Inspect 
+
+- Elements: shows the HTML structure of the web page and the CSS properties
+- Console: this tab outputs JS logs and errors from the web application 
+- Sources tab shows all content resolved for the current page
+- Network: you can inspect the timeline and details of HTTP requests and responses of the webpage
+- Performance: shows what the web browser is doing over time
+- Memory: displays the parts of your code that are consuming the most resources
+
+### Frameworks and Libraries: 
+- these are open-source or proprietary 
+
+**Libraries**: 
+    -are reusable pieces of code that can be used by your application. <br>
+    - they provide a specific functionality. For exmample: email validation libraries when you build an e commerce application or web shop. No need to build your own validation process, there are libraries available. <br>
+    - it saves time for you as a developer.
+
+**Frameworks**: 
+    - provide a structure to build with, and where the developers add their own code that the framework interacts with
+    - Express, Django, ASP.NET, Rails, Spring
+    - For example: by the e commerce application a framework would handle recieving HTTP requests. The developer would implement code that processes the request and returns a response from which the framework would send a response over HTTP. 
+
+Most frameworks use many libraries.
+
+### APIs and services: 
+
+**API (Application Programming Interface)**: is a set of functions and procedures for creating applications that access the features or data of an operating system, application or other service.
+Browser API, REST API, Sensor-Based API
+
+APIs are the bridge between different components or systems (gateway or middleware)
+**Examples**: 
+1. **Browser or Web API**: it is built into the browser itself. They extend the funcionality of the browser by adding new services and are designed to simplify complex funcions and provide easy syntax for building advanced features. 
+DOM API: turns the html ducument into tree of nodes that are represented as JS objects 
+2. **REST API**: it is a web server that provides data for web and mobile applications.
+REST (Representational State Transfer) is a set of principles that help build highly efficient APIs. One of the main responsibilities of REST API is sending and recieving data to and from a centralized database. 
+These APIs use endpoints to specify how different resources can be accessed 
+The endpoint is built into the URL when accessing the API. Once the endpoint is hit, the API performs whatever service side processing is needed to build the response. 
+3. **Sensor-Based API**: these are actual physical senses that are interconnected with each other. The sensors can communicate through API and track and respond to physical data. For example, smart lights, node bots
+
+### IDE: Integrated Developement Environment 
+- IDE is a software for building applications 
+Benefits: 
+- syntax highlighting help to read the language keywords, it warns for errors
+- autocomplete of syntaxes 
