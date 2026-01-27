@@ -1,111 +1,34 @@
-menu = {
-    1: {"name": 'espresso', "price": 1.99},
-    2: {"name": 'coffee', "price": 2.50},
-    3: {"name": 'cake', "price": 2.79},
-    4: {"name": 'soup', "price": 4.50},
-    5: {"name": 'sandwich', "price": 4.99}
-}
+# LeetCode practice 
 
-"""
-Calculates the subtotal of an order.
+# 9. Palindrome Number 
+# Given an integer x, return true if x is a palindrome, and false otherwise.
 
-    [IMPLEMENT ME]
-        1. Add up the prices of all items in the order.
-        2. Round the result to 2 decimal places and return it.
-    Args:
-        order (list): A list of dicts, where each dict represents an item with a name and price.
-    Returns:
-        float: The subtotal of all item prices, rounded to 2 decimal places.
-"""
+def is_palindrome(x: int):
 
-def calculate_subtotal(order):
-    print('Calculating bill subtotal...')
-    subtotal = 0
-    for item in order:
-        subtotal += item['price']
-    return round(subtotal, 2)
+    ''' my solution
+    int_to_str = str(num)
+    start_index = 0
+    end_index = len(int_to_str) -1
 
+    for x in str(int_to_str):
+        if int_to_str[start_index] != int_to_str[end_index]
+            return False
+        
+        return True 
+    '''
 
-"""
-Calculates the tax of an order.
-    [IMPLEMENT ME]
-        1. Calculate 15% of the subtotal.
-        2. Round the tax to 2 decimal places and return it.
-    Args:
-        subtotal (float): The subtotal amount.
-    Returns:
-        float: The calculated tax amount, rounded to 2 decimal places.
-"""
-def calculate_tax(subtotal):
-    print('Calculating tax from subtotal...')
-    tax = subtotal * 15 / 100
-    return round(tax, 2)
+    # solution, working for all test cases
+    if x < 0 or (x and x % 10 == 0):
+        return False
+    
+    y = 0
+    while y < x:
+        y = y * 10 + x % 10
+        x //= 10
+    return x in (y, y // 10)
 
 
-"""
-Summarizes the order.
-    [IMPLEMENT ME]
-        1. Calculate subtotal and tax.
-        2. Compute the total (subtotal + tax) and round to 2 decimal places.
-        3. Extract the item names and return them with the total.
-    Args:
-        order (list): A list of dicts, where each dict represents an item with a name and price.
-    Returns:
-        tuple: A list of item names and the total amount (rounded to 2 decimal places).
-"""
-def summerize_order(order):
-    print_order(order)
+print(is_palindrome(121))
+print(is_palindrome(-121))
+print(is_palindrome(10))
 
-    # calculate total 
-    subtotal = calculate_subtotal(order)
-    tax = calculate_tax(subtotal)
-    total = subtotal + tax
-
-    # get names
-    names = [item["name"] for item in order]
-
-    return names, round(total, 2)
-
-# This function is provided for you and will print out the items in an order
-def print_order(order):
-    print('You have ordered ' + str(len(order)) + ' items')
-    items = [item["name"] for item in order]
-    print(items)
-    return order
-
-
-# This function is provided for you and will display the menu
-def display_menu():
-    print("------- Menu -------")
-    for selection in menu:
-        print(f"{selection}. {menu[selection]['name'] : <9} | {menu[selection]['price'] : >5}")
-    print()
-
-# This function is provided for you and will create an order by prompting the user to select menu items
-def take_order():
-    display_menu()
-    order = []
-    count = 1
-    for i in range(3):
-        item = input('Select menu item number ' + str(count) + ' (from 1 to 5): ')
-        count += 1
-        order.append(menu[int(item)])
-    return order
-
-
-def main():
-    order = take_order()
-    print_order(order)
-
-    subtotal = calculate_subtotal(order)
-    print('Subtotal for the order is: ' + str(subtotal))
-
-    tax = calculate_tax(subtotal)
-    print('Tax for the order is: ' + str(tax))
-
-    names, total = summerize_order(order)
-    print(f'Order summary: Items: {names}, Total: {total}')
-
-
-if __name__ == "__main__":
-    main()
